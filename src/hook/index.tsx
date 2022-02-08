@@ -21,6 +21,7 @@ interface MoviesContextDataProps {
 interface MoviesContextData {
   movies: MoviesContextDataProps[];
   trocarPagina: (pagina: number) => void;
+  getPagina: () => Promise<number>;
 }
 
 export const MoviesContext = createContext<MoviesContextData>(
@@ -57,8 +58,12 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
     setPage(pagina);
   }
 
+  async function getPagina() {
+    return page;
+  }
+
   return (
-    <MoviesContext.Provider value={{ movies, trocarPagina }}>
+    <MoviesContext.Provider value={{ movies, trocarPagina, getPagina }}>
       {children}
     </MoviesContext.Provider>
   );
