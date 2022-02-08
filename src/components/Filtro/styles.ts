@@ -20,3 +20,19 @@ export const Container = styled.div`
     }
   }
 `;
+
+type ButtonProps = {
+  isActive: boolean;
+};
+
+export const Button = styled.button<ButtonProps>`
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: ${(props) => (props.isActive ? "var(--orange)" : "var(--shape)")};
+
+  &:hover {
+    background: var(--orange);
+    color: var(--shape);
+  }
+`;
