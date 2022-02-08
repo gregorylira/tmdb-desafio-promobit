@@ -1,28 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { MoviesContextData, MoviesContextDataProps } from "../model";
 import { api } from "../service/api";
-
-interface MoviesContextDataProps {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
-
-interface MoviesContextData {
-  movies: MoviesContextDataProps[];
-  trocarPagina: (pagina: number) => void;
-  getPagina: () => Promise<number>;
-}
 
 export const MoviesContext = createContext<MoviesContextData>(
   {} as MoviesContextData

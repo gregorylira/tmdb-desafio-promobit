@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: var(--purple);
-  height: 28rem;
+  height: 24rem;
 `;
 
 export const Content = styled.div`
