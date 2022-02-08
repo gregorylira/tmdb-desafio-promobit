@@ -11,7 +11,7 @@ type MoviesContextProps = {
 };
 
 type filterProps = {
-  filterType: number;
+  filterType: string[];
   filter: boolean;
 };
 
@@ -19,7 +19,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
   const [movies, setMovies] = useState<MoviesContextDataProps[]>([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<filterProps>({
-    filterType: 0,
+    filterType: [],
     filter: false,
   });
 
@@ -30,19 +30,21 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
           `movie/popular?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&page=${page}`
         )
         .then((response) => {
-          console.log(response.data.results);
-          console.log(response.data.page);
+          // console.log(response.data.results);
+          // console.log(response.data.page);
           setMovies(response.data.results);
         });
     } else {
-      console.log(filter.filter);
+      // console.log(filter.filter);
+      // var filtros = filter.filter ? filter.filterType.join(",") : "";
+      // console.log(filtros);
       await api
         .get(
           `discover/movie?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${filter.filterType}&with_watch_monetization_types=flatrate`
         )
         .then((response) => {
-          console.log(response.data.results);
-          console.log(response.data.page);
+          // console.log(response.data.results);
+          // console.log(response.data.page);
           setMovies(response.data.results);
         });
     }
@@ -52,15 +54,16 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
     getMovies();
   }, [page, filter]);
 
-  async function filtragem(filterType: number) {
-    if (filterType === filter.filterType) {
+  async function filtragem(filterTypes: string) {
+    if (filter.filterType.find((genre) => genre === filterTypes)) {
+      console.log(filter.filterType);
       setFilter({
-        filterType: 0,
-        filter: false,
+        filterType: filter.filterType.filter((item) => item !== filterTypes),
+        filter: filter.filterType.length > 0,
       });
     } else {
       setFilter({
-        filterType,
+        filterType: [...filter.filterType, filterTypes],
         filter: true,
       });
     }

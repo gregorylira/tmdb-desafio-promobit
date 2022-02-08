@@ -7,7 +7,7 @@ import { Content, Footer } from "./styles";
 
 export function Home() {
   const { movies, trocarPagina, getPagina } = useMovies();
-  console.log(movies);
+  // console.log(movies);
 
   async function handleClickNextPage() {
     const pagina = await getPagina();

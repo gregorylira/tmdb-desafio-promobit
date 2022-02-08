@@ -19,5 +19,5 @@ export interface MoviesContextData {
   movies: MoviesContextDataProps[];
   trocarPagina: (pagina: number) => void;
   getPagina: () => Promise<number>;
-  filtragem: (filtro: number) => Promise<void>;
+  filtragem: (filtro: string) => Promise<void>;
 }
