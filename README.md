@@ -2,9 +2,7 @@
 
 # Introdução
 
-Olá! Obrigado pelo interesse em participar do nosso processo seletivo para dev frontend no [Promobit](https://www.promobit.com.br/).
-
-O objetivo do desafio proposto é permitir uma melhor avaliação das suas habilidades como candidato à vaga de frontend. Este desafio deve ser feito apenas por você. Sua implementação e escolha de ferramentas poderá ser questionada em outra etapa.
+Estra aplicação é um desafio proposto pela promobit, é uma aplicação que consome uma api de filmes, onde o usuario pode listar os filmes populares do dia quanto tempo pode filtrar filmes por genero.
 
 ## O desafio
 
@@ -39,31 +37,18 @@ Siga o [layout do figma](https://www.figma.com/file/rM7WPqhLY9ObnGzSCeWLxB/Teste
 Temos insights que nos levam a acreditar que os usuários dessa lista costumam ter uma experiência melhor se conseguirem criar um filtro usando seus gêneros favoritos. Portanto, você também poderá criar filtros de filmes por gênero nessa listagem. Note que um novo endpoint deverá ser consultado para obter uma lista dos possíveis gêneros a serem filtrados, [`GET /genre/movie/list`](https://developers.themoviedb.org/3/genres/get-movie-list).
 
 - [ ] O usuário deve conseguir filtrar os filmes listados por gênero, com a possibilidade de usar mais de um gênero
-- [ ] O usuário deve conseguir remover filtros e a listagem deve ser atualizada de acordo com o filtro removido
+- [ x ] O usuário deve conseguir remover filtros e a listagem deve ser atualizada de acordo com o filtro removido
 - [ ] A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa
 
-## Critérios de avaliação
+## Como instalar
 
-- Boas práticas de desenvolvimento como: html semântico, componentização, design patterns, clean code
-- Domínio das ferramentas e linguagens que compõe um app de frontend moderno
-- Documentação: explicação para construir o app localmente, histórico e workflow de git
+- 1 - primeiro dê o clone
+- 2 - na basta raiz basta dar um yarn, ou um npm install
+- 3 - execução -> yarn start or npm run start
 
-## Entrega
+## Tecnologias utilizadas
 
-Para realizar a entrega do desafio, você deverá enviar um email para devs@promobit.com.br com o título `[Frontend Challenge] Seu nome` com o link para o repositório com seu código. Exemplo:
-
-https://github.com/seu-nome/front-end-challenge.git
-
-Não se esqueça de criar um arquivo `README.md` contendo as instruções para construir o app localmente.
-
-## Feedback
-
-No Promobit, valorizamos muito feedbacks. Acreditamos que o feedback é essencial para melhorar, aprender e facilitar processos. Dessa forma, assim que o seu desafio for submetido, prometemos enviar um feedback técnico em até uma semana usando todos os critérios de avaliação descritos acima.
-
-## Dúvidas
-
-Caso haja qualquer dúvida sobre o teste, nos envie um email para devs@promobit.com.br com o título: `[Frontend Challenge] Briefing da dúvida`
-
----
-
-Obrigado e bom desafio!
+- React-Typescript
+- AXIOS
+- Styled-Components
+- API do TMDB de filmes
