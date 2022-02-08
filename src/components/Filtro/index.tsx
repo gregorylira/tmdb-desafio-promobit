@@ -8,7 +8,11 @@ export function Filtro() {
 
   function filtrarGenero(filter: number) {
     filtragem(filter);
-    setActive(filter);
+    if (filter !== active) {
+      setActive(filter);
+    } else {
+      setActive(0);
+    }
   }
 
   return (

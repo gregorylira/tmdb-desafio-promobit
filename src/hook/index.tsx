@@ -23,12 +23,12 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
     filter: false,
   });
 
-  const API_KEY = process.env.REACT_APP_API_KEY_TMDB;
-
   async function getMovies() {
     if (!filter.filter) {
       await api
-        .get(`movie/popular?api_key=${API_KEY}&language=pt-BR&page=${page}`)
+        .get(
+          `movie/popular?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&page=${page}`
+        )
         .then((response) => {
           console.log(response.data.results);
           console.log(response.data.page);
@@ -38,7 +38,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
       console.log(filter.filter);
       await api
         .get(
-          `discover/movie?api_key=${API_KEY}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${filter.filterType}&with_watch_monetization_types=flatrate`
+          `discover/movie?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${filter.filterType}&with_watch_monetization_types=flatrate`
         )
         .then((response) => {
           console.log(response.data.results);
