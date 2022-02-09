@@ -16,6 +16,7 @@ type filterProps = {
 };
 
 export function MoviesContextProvider({ children }: MoviesContextProps) {
+  const [active, setActive] = useState([0]);
   const [movies, setMovies] = useState<MoviesContextDataProps[]>([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<filterProps>({
@@ -73,7 +74,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
 
   return (
     <MoviesContext.Provider
-      value={{ movies, trocarPagina, getPagina, filtragem }}
+      value={{ movies, trocarPagina, getPagina, filtragem, active, setActive }}
     >
       {children}
     </MoviesContext.Provider>

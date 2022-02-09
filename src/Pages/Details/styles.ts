@@ -64,4 +64,15 @@ export const Content = styled.div`
 
 export const Elenco = styled.div`
   display: flex;
+  flex-direction: column;
+  margin: 2.75rem 0 2rem 7rem;
+  h2 {
+    margin-bottom: 2rem;
+  }
+  .elencos {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow: scroll;
+  }
 `;

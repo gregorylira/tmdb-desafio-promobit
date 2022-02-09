@@ -20,4 +20,6 @@ export interface MoviesContextData {
   trocarPagina: (pagina: number) => void;
   getPagina: () => Promise<number>;
   filtragem: (filtro: string) => Promise<void>;
+  active: number[];
+  setActive: React.Dispatch<React.SetStateAction<number[]>>;
 }

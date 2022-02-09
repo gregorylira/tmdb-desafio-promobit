@@ -7,6 +7,7 @@ import { api } from "../../service/api";
 import { Container, Content, Elenco } from "./styles";
 import { Participante } from "../../components/Participantes";
 import { useEffect, useState } from "react";
+import { CardProfile } from "../../components/CardProfile";
 
 type DetailsParams = {
   id: string;
@@ -160,8 +161,24 @@ export function Details() {
             ))}
           </div>
         </Content>
-        <Elenco></Elenco>
       </Container>
+      <Elenco>
+        <h2>Elenco</h2>
+        <div className="elencos">
+          {participantes.cast?.map((participante) => (
+            <CardProfile
+              key={participante.id}
+              name={participante.name}
+              character={participante.character}
+              profileImg={
+                participante.profile_path
+                  ? `https://image.tmdb.org/t/p/w500/${participante.profile_path}`
+                  : ""
+              }
+            />
+          ))}
+        </div>
+      </Elenco>
     </>
   );
 }

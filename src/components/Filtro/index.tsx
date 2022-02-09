@@ -3,8 +3,7 @@ import { useMovies } from "../../hook";
 import { Button, Container } from "./styles";
 
 export function Filtro() {
-  const { filtragem } = useMovies();
-  const [active, setActive] = useState([0]);
+  const { filtragem, active, setActive } = useMovies();
 
   function filtrarGenero(filter: number) {
     filtragem(filter.toString());
