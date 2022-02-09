@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { CardMovie } from "../../components/CardMovie";
 import { Dashboard } from "../../components/Dashboard";
 import { MoviesContext, useMovies } from "../../hook";
@@ -7,6 +8,8 @@ import { Content, Footer } from "./styles";
 
 export function Home() {
   const { movies, trocarPagina, getPagina } = useMovies();
+  const history = useHistory();
+  const [countPage, setCountPage] = useState(1);
   // console.log(movies);
 
   async function handleClickNextPage() {
@@ -37,6 +40,9 @@ export function Home() {
             <CardMovie
               key={movie.id}
               title={movie.title}
+              onClick={() => {
+                history.push(`/movie/${movie.id}`);
+              }}
               data={new Date(movie.release_date).toLocaleDateString()}
               imagem={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
             />
@@ -44,10 +50,21 @@ export function Home() {
         })}
       </Content>
       <Footer>
-        <div>
-          <button onClick={handleClickPreviousPage}>Previous Page</button>
-          <button onClick={handleClickNextPage}>Next Page</button>
-        </div>
+        {(movies.length > 19 || countPage >= 1) && (
+          <div>
+            {movies.length !== 0 && (
+              <>
+                <button onClick={handleClickPreviousPage}>Previous Page</button>
+                <button onClick={handleClickNextPage}>Next Page</button>
+              </>
+            )}
+          </div>
+        )}
+        {movies.length === 0 && (
+          <div>
+            <button onClick={handleClickPreviousPage}>Previous Page</button>
+          </div>
+        )}
       </Footer>
     </>
   );

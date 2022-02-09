@@ -30,21 +30,14 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
           `movie/popular?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&page=${page}`
         )
         .then((response) => {
-          // console.log(response.data.results);
-          // console.log(response.data.page);
           setMovies(response.data.results);
         });
     } else {
-      // console.log(filter.filter);
-      // var filtros = filter.filter ? filter.filterType.join(",") : "";
-      // console.log(filtros);
       await api
         .get(
           `discover/movie?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${filter.filterType}&with_watch_monetization_types=flatrate`
         )
         .then((response) => {
-          // console.log(response.data.results);
-          // console.log(response.data.page);
           setMovies(response.data.results);
         });
     }

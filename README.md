@@ -18,9 +18,9 @@ Siga o [layout do figma](https://www.figma.com/file/rM7WPqhLY9ObnGzSCeWLxB/Teste
 
 - [ x ] O usuário deve conseguir paginar a lista para encontrar novos filmes
 
-- [ ] O usuário deve ter acesso a uma outra página com detalhes sobre o filme, ao clicar em um item na listagem
+- [ x ] O usuário deve ter acesso a uma outra página com detalhes sobre o filme, ao clicar em um item na listagem
 
-- [ ] O usuário deve conseguir voltar para a página de listagem de filmes com os filtros ainda ativos
+- [ x ] O usuário deve conseguir voltar para a página de listagem de filmes com os filtros ainda ativos
 
 ## Requisitos não funcionais
 
@@ -38,7 +38,7 @@ Temos insights que nos levam a acreditar que os usuários dessa lista costumam t
 
 - [ x ] O usuário deve conseguir filtrar os filmes listados por gênero, com a possibilidade de usar mais de um gênero
 - [ x ] O usuário deve conseguir remover filtros e a listagem deve ser atualizada de acordo com o filtro removido
-- [ ] A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa
+- [ x ] A página com detalhes de um filme deve possuir uma rota própria e estar preparada para ser indexada em mecanismos de pesquisa
 
 ## Como instalar
 
