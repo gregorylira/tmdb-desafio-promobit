@@ -52,3 +52,4 @@ Temos insights que nos levam a acreditar que os usuários dessa lista costumam t
 - AXIOS
 - Styled-Components
 - API do TMDB de filmes
+- para o sistem a de roteamento o React Router Dom versão 5
