@@ -4,11 +4,15 @@ export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 1440px;
+  width: 100%;
   align-items: center;
   gap: 2rem;
   padding: 1.5rem;
   margin: 0 auto;
+
+  @media (max-width: 601px) {
+    padding-top: 5rem;
+  }
 `;
 
 export const Footer = styled.footer`

@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 1024px;
-  max-width: 975px;
+  width: 100%;
   gap: 12px;
   margin-top: 1rem;
   justify-content: center;

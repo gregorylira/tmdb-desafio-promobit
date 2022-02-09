@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 
   .banner {
     object-fit: cover;
@@ -14,6 +15,19 @@ export const Container = styled.div`
     border-radius: 8px;
     margin-left: 112px;
     margin-top: 72px;
+  }
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 40px;
+    
+
+    .banner {
+      width: 50%;
+      height: 50%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -25,6 +39,7 @@ export const Content = styled.div`
   color: var(--shape);
   margin: 90px 2rem 0 2rem;
   gap: 1rem;
+  
   .avaliacao-usuario {
     display: flex;
     flex-direction: row;
@@ -75,6 +90,10 @@ export const Elenco = styled.div`
     gap: 1rem;
     overflow: scroll;
   }
+  @media (max-width: 1000px) {
+    margin: 20px;
+    max-width: 100%;
+  }
 `;
 
 export const Trailer = styled.div`
@@ -83,8 +102,12 @@ export const Trailer = styled.div`
   margin: 2.75rem 0 2rem 7rem;
   iframe {
     margin-top: 2rem;
-    width: 56rem;
-    height: 31rem;
+    width: 90%;
+    height: 20rem;
+  }
+  @media (max-width: 1000px) {
+    margin: 20px;
+    max-width: 100%;
   }
 `;
 
@@ -97,5 +120,9 @@ export const Recomendacoes = styled.div`
     flex-direction: row;
     gap: 1rem;
     overflow: scroll;
+  }
+  @media (max-width: 1000px) {
+    margin: 20px;
+    max-width: 100%;
   }
 `;
