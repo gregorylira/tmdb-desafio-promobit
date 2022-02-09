@@ -76,3 +76,26 @@ export const Elenco = styled.div`
     overflow: scroll;
   }
 `;
+
+export const Trailer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 2.75rem 0 2rem 7rem;
+  iframe {
+    margin-top: 2rem;
+    width: 56rem;
+    height: 31rem;
+  }
+`;
+
+export const Recomendacoes = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 2.75rem 0 2rem 7rem;
+  .recomendacoes {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow: scroll;
+  }
+`;

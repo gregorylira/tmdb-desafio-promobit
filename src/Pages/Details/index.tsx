@@ -4,10 +4,11 @@ import filmeImg from "../../assets/filme.jpg";
 import avaliacaoImg from "../../assets/avaliacao.svg";
 import { api } from "../../service/api";
 
-import { Container, Content, Elenco } from "./styles";
+import { Container, Content, Elenco, Recomendacoes, Trailer } from "./styles";
 import { Participante } from "../../components/Participantes";
 import { useEffect, useState } from "react";
 import { CardProfile } from "../../components/CardProfile";
+import { CardMovie } from "../../components/CardMovie";
 
 type DetailsParams = {
   id: string;
@@ -48,6 +49,22 @@ interface ParticipanteProps {
   ];
 }
 
+interface TrailerProps {
+  id: number;
+  key: string;
+  name: string;
+  site: string;
+  size: number;
+  type: string;
+}
+
+interface RecomendacoesProps {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+}
+
 export function Details() {
   const id = useParams<DetailsParams>();
   const [moviesDetails, setMoviesDetails] = useState<MoviesDetailsProps>(
@@ -57,10 +74,12 @@ export function Details() {
     {} as ParticipanteProps
   );
 
+  const [recomendacoes, setRecomendacoes] = useState<RecomendacoesProps[]>([]);
+
   async function getMoviesDetails() {
     await api
       .get(
-        `movie/${id.id}?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR`
+        `movie/${id.id}?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=en-US`
       )
       .then((response) => {
         console.log(response);
@@ -78,6 +97,29 @@ export function Details() {
       )
       .then((response) => {
         setParticipantes(response.data);
+      });
+  }
+  async function getRecomendacoes(): Promise<void | RecomendacoesProps[]> {
+    // https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
+    await api
+      .get(
+        `movie/${id.id}/recommendations?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=en-US&page=1`
+      )
+      .then((response) => {
+        setRecomendacoes(response.data.results);
+      });
+  }
+
+  async function getMovieTrailer() {
+    await api
+      .get(
+        `movie/${id.id}/videos?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR`
+      )
+      .then((response) => {
+        const movieTrailer = response.data.results.filter(
+          (item: TrailerProps) => item.type === "Trailer"
+        )[0];
+        return movieTrailer.key;
       });
   }
 
@@ -119,6 +161,7 @@ export function Details() {
 
   useEffect(() => {
     getMoviesDetails();
+    getRecomendacoes();
   }, []);
 
   return (
@@ -179,6 +222,33 @@ export function Details() {
           ))}
         </div>
       </Elenco>
+      <Trailer>
+        <h2>Trailer</h2>
+        <iframe
+          title="trailer"
+          src={`https://www.youtube.com/embed/${getMovieTrailer()}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </Trailer>
+      <Recomendacoes>
+        <h2>Recomendações</h2>
+        <div className="recomendacoes">
+          {recomendacoes.map((recomendacao: RecomendacoesProps) => (
+            <CardMovie
+              key={recomendacao.id}
+              title={recomendacao.title}
+              imagem={
+                recomendacao.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${recomendacao.poster_path}`
+                  : ""
+              }
+              data={new Date(recomendacao.release_date).toLocaleDateString()}
+            />
+          ))}
+        </div>
+      </Recomendacoes>
     </>
   );
 }

@@ -6,7 +6,7 @@ interface CardMovieProps {
   title: string;
   data: string;
   imagem: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export function CardMovie({ title, data, imagem, onClick }: CardMovieProps) {
