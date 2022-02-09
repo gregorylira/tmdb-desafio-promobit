@@ -102,12 +102,17 @@ export const Trailer = styled.div`
   margin: 2.75rem 0 2rem 7rem;
   iframe {
     margin-top: 2rem;
+    width: 40.87rem;
+    height: 23.93rem;
+  }
+  @media (max-width: 700px) {
+    margin: 20px;
+    max-width: 100%;
+    iframe {
+    margin-top: 2rem;
     width: 90%;
     height: 20rem;
   }
-  @media (max-width: 1000px) {
-    margin: 20px;
-    max-width: 100%;
   }
 `;
 
