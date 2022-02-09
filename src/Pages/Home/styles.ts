@@ -5,9 +5,10 @@ export const Content = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   width: 1440px;
-  align-self: center;
+  align-items: center;
   gap: 2rem;
   padding: 1.5rem;
+  margin: 0 auto;
 `;
 
 export const Footer = styled.footer`

@@ -43,8 +43,10 @@ Temos insights que nos levam a acreditar que os usuários dessa lista costumam t
 ## Como instalar
 
 - 1 - primeiro dê o clone
-- 2 - na basta raiz basta dar um yarn, ou um npm install
-- 3 - execução -> yarn start or npm run start
+- 2 - na pasta raiz basta dar um yarn, ou um npm install
+- 3 - na pasta raiz, criar uma .env com a api key com o nome REACT_APP_API_KEY_TMDB
+- 4 - execução -> yarn start or npm run start
+
 
 ## Tecnologias utilizadas
 
