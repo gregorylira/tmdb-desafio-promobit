@@ -83,8 +83,6 @@ export function Details() {
         `movie/${id.id}?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=en-US`
       )
       .then((response) => {
-        console.log(response);
-
         setMoviesDetails(response.data);
       });
 

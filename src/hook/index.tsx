@@ -51,7 +51,6 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
 
   async function filtragem(filterTypes: string) {
     if (filter.filterType.find((genre) => genre === filterTypes)) {
-      console.log(filter.filterType);
       setFilter({
         filterType: filter.filterType.filter((item) => item !== filterTypes),
         filter: filter.filterType.length > 0,

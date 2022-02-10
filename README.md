@@ -47,7 +47,6 @@ Temos insights que nos levam a acreditar que os usuários dessa lista costumam t
 - 3 - na pasta raiz, criar uma .env com a api key com o nome REACT_APP_API_KEY_TMDB
 - 4 - execução -> yarn start or npm run start
 
-
 ## Tecnologias utilizadas
 
 - React-Typescript
@@ -55,3 +54,7 @@ Temos insights que nos levam a acreditar que os usuários dessa lista costumam t
 - Styled-Components
 - API do TMDB de filmes
 - para o sistem a de roteamento o React Router Dom versão 5
+
+## Aplicação rodando no netlify
+
+- https://tmdb-filmes-greg.netlify.app/

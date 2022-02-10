@@ -10,7 +10,6 @@ export function Home() {
   const { movies, trocarPagina, getPagina } = useMovies();
   const history = useHistory();
   const [countPage, setCountPage] = useState(1);
-  // console.log(movies);
 
   async function handleClickNextPage() {
     const pagina = await getPagina();
