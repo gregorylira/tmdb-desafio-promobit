@@ -1,5 +1,4 @@
 import { Container } from "./styles";
-import profileImg from "../../assets/profile.jpg";
 
 interface CardProfileProps {
   name: string;

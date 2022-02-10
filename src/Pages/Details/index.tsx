@@ -240,7 +240,7 @@ export function Details() {
             <CardMovie
               key={recomendacao.id}
               title={recomendacao.title}
-              imagem={
+              movieImagem={
                 recomendacao.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${recomendacao.poster_path}`
                   : ""

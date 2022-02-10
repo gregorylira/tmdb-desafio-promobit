@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useMovies } from "../../hook";
 import { Button, Container } from "./styles";
 

@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { CardMovie } from "../../components/CardMovie";
 import { Dashboard } from "../../components/Dashboard";
-import { MoviesContext, useMovies } from "../../hook";
+import { useMovies } from "../../hook";
 
 import { Content, Footer } from "./styles";
 
@@ -17,6 +17,7 @@ export function Home() {
     if (!pagina) {
       return 1;
     }
+    setCountPage(pagina + 1);
     trocarPagina(pagina + 1);
   }
 
@@ -25,6 +26,7 @@ export function Home() {
     if (pagina === 1) {
       return 1;
     }
+    setCountPage(pagina - 1);
     trocarPagina(pagina - 1);
   }
 
@@ -34,7 +36,7 @@ export function Home() {
       <Content>
         {movies.map((movie) => {
           if (!movie.backdrop_path) {
-            return;
+            return <></>;
           }
           return (
             <CardMovie
@@ -44,7 +46,7 @@ export function Home() {
                 history.push(`/movie/${movie.id}`);
               }}
               data={new Date(movie.release_date).toLocaleDateString()}
-              imagem={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+              movieImagem={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
             />
           );
         })}
