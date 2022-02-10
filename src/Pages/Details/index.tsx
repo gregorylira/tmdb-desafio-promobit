@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Header } from "../../components/Header";
 import filmeImg from "../../assets/filme.jpg";
 import avaliacaoImg from "../../assets/avaliacao.svg";
@@ -73,6 +73,7 @@ export function Details() {
   const [participantes, setParticipantes] = useState<ParticipanteProps>(
     {} as ParticipanteProps
   );
+  const history = useHistory();
 
   const [recomendacoes, setRecomendacoes] = useState<RecomendacoesProps[]>([]);
 
@@ -244,6 +245,11 @@ export function Details() {
                   ? `https://image.tmdb.org/t/p/w500/${recomendacao.poster_path}`
                   : ""
               }
+              onClick={() => {
+                history.push(`/movie/${recomendacao.id}`);
+                window.location.reload();
+                window.scrollTo(0, 0);
+              }}
               data={new Date(recomendacao.release_date).toLocaleDateString()}
             />
           ))}
