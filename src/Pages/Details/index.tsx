@@ -250,6 +250,7 @@ export function Details() {
                 setStack(stack + 1);
               }}
               data={new Date(recomendacao.release_date).toLocaleDateString()}
+              small
             />
           ))}
         </div>

@@ -1,21 +1,39 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  small?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   /* max-height: 22rem;
   max-width: 11rem; */
   cursor: pointer;
 
-  div {
-    height: 264px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0.25rem;
-    }
-  }
+  ${(props) =>
+    props.small
+      ? css`
+          div {
+            img {
+              height: 264px;
+              object-fit: cover;
+              border-radius: 0.25rem;
+            }
+          }
+        `
+      : css`
+          div {
+            height: 264px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 0.25rem;
+            }
+          }
+        `}
+
   .title {
     font-size: 1rem;
     font-weight: bold;

@@ -5,6 +5,7 @@ interface CardMovieProps {
   data: string;
   movieImagem: string;
   onClick?: () => void;
+  small?: boolean;
 }
 
 export function CardMovie({
@@ -12,9 +13,10 @@ export function CardMovie({
   data,
   movieImagem,
   onClick,
+  small,
 }: CardMovieProps) {
   return (
-    <Container onClick={onClick}>
+    <Container onClick={onClick} small={small}>
       <div>
         <img src={movieImagem} alt="logo" />
       </div>
