@@ -80,7 +80,7 @@ export function Details() {
   async function getMoviesDetails() {
     await api
       .get(
-        `movie/${id.id}?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=en-US`
+        `movie/${id.id}?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR`
       )
       .then((response) => {
         setMoviesDetails(response.data);
@@ -102,7 +102,7 @@ export function Details() {
     // https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
     await api
       .get(
-        `movie/${id.id}/recommendations?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=en-US&page=1`
+        `movie/${id.id}/recommendations?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&page=1`
       )
       .then((response) => {
         setRecomendacoes(response.data.results);
