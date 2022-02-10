@@ -46,6 +46,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
 
   useEffect(() => {
     getMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, filter]);
 
   async function filtragem(filterTypes: string) {

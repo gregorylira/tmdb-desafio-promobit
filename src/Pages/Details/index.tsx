@@ -1,6 +1,5 @@
 import { useHistory, useParams } from "react-router-dom";
 import { Header } from "../../components/Header";
-import filmeImg from "../../assets/filme.jpg";
 import avaliacaoImg from "../../assets/avaliacao.svg";
 import { api } from "../../service/api";
 
@@ -163,6 +162,7 @@ export function Details() {
   useEffect(() => {
     getMoviesDetails();
     getRecomendacoes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
