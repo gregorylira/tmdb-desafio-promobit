@@ -73,6 +73,7 @@ export function Details() {
     {} as ParticipanteProps
   );
   const history = useHistory();
+  const [stack, setStack] = useState(0);
 
   const [recomendacoes, setRecomendacoes] = useState<RecomendacoesProps[]>([]);
 
@@ -160,10 +161,11 @@ export function Details() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getMoviesDetails();
     getRecomendacoes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [stack]);
 
   return (
     <>
@@ -247,8 +249,7 @@ export function Details() {
               }
               onClick={() => {
                 history.push(`/movie/${recomendacao.id}`);
-                window.location.reload();
-                window.scrollTo(0, 0);
+                setStack(stack + 1);
               }}
               data={new Date(recomendacao.release_date).toLocaleDateString()}
             />
