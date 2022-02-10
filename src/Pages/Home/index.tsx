@@ -12,6 +12,7 @@ export function Home() {
   const [countPage, setCountPage] = useState(1);
 
   async function handleClickNextPage() {
+    window.scrollTo(0, 0);
     const pagina = await getPagina();
     if (!pagina) {
       return 1;
@@ -21,6 +22,7 @@ export function Home() {
   }
 
   async function handleClickPreviousPage() {
+    window.scrollTo(0, 0);
     const pagina = await getPagina();
     if (pagina === 1) {
       return 1;
