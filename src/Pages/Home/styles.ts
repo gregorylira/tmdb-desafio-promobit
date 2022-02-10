@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const BackWhite = styled.div`
+  background-color: #e3e3e3;
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;

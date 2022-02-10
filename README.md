@@ -10,7 +10,7 @@ Usando a API de filmes gratuita [themoviedb](https://developers.themoviedb.org/3
 
 Para garantir que o usuário encontre o filme que está procurando, essa lista deverá ser paginada.
 
-Siga o [layout do figma](https://www.figma.com/file/rM7WPqhLY9ObnGzSCeWLxB/Teste-Front-End) sugerido. Não há necessidade de ser pixel perfect mas respeite a composição, fontes e cores.
+Siga o [layout do figma](https://www.figma.com/file/rM7WPqhLY9ObnGzSCeWLxB/Teste-Front-End)(observação: mudei os card da tela de inicio pois o backend não me fornecia as imagens direito e vinha imagens quebradas, dai utilizei a backdrop_path que é um poster mais horizontal, então mudei os card pra ficar mais adaptado, ps: achei ate mais bonito) sugerido. Não há necessidade de ser pixel perfect mas respeite a composição, fontes e cores.
 
 ## Requisitos funcionais
 

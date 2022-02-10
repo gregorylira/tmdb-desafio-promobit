@@ -15,7 +15,9 @@ export function CardMovie({
 }: CardMovieProps) {
   return (
     <Container onClick={onClick}>
-      <img src={movieImagem} alt="logo" />
+      <div>
+        <img src={movieImagem} alt="logo" />
+      </div>
       <span className="title">{title}</span>
       <span className="data">{data}</span>
     </Container>

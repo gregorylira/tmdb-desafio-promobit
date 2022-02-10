@@ -4,7 +4,7 @@ import { CardMovie } from "../../components/CardMovie";
 import { Dashboard } from "../../components/Dashboard";
 import { useMovies } from "../../hook";
 
-import { Content, Footer } from "./styles";
+import { BackWhite, Content, Footer } from "./styles";
 
 export function Home() {
   const { movies, trocarPagina, getPagina } = useMovies();
@@ -30,7 +30,7 @@ export function Home() {
   }
 
   return (
-    <>
+    <BackWhite>
       <Dashboard />
       <Content>
         {movies.map((movie) => {
@@ -67,6 +67,6 @@ export function Home() {
           </div>
         )}
       </Footer>
-    </>
+    </BackWhite>
   );
 }
