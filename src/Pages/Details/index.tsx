@@ -192,13 +192,19 @@ export function Details() {
           <span className="sinopse">{moviesDetails.overview}</span>
 
           <div className="participantes">
-            {getfiveParticipantes()?.map((participante) => (
-              <Participante
-                key={participante.id}
-                name={participante.name}
-                role={participante.known_for_department}
-              />
-            ))}
+            {getfiveParticipantes()?.map((participante) => {
+              if (!participante.profile_path) {
+                return <></>;
+              }
+
+              return (
+                <Participante
+                  key={participante.id}
+                  name={participante.name}
+                  role={participante.known_for_department}
+                />
+              );
+            })}
             {getfiveParticipantesDepartament()?.map((participante) => (
               <Participante
                 key={participante.id}
