@@ -9,7 +9,7 @@ interface CardProfileProps {
 export function CardProfile({ name, profileImg, character }: CardProfileProps) {
   return (
     <Container>
-      <img src={profileImg} alt="profile image" />
+      <img src={profileImg} alt="profile" />
       <h1>{name}</h1>
       <span>{character}</span>
     </Container>
