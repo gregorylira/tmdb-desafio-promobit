@@ -75,6 +75,8 @@ export function Details() {
   const history = useHistory();
   const [stack, setStack] = useState(0);
 
+  const [trailer, setTrailer] = useState<TrailerProps[]>([]);
+
   const [recomendacoes, setRecomendacoes] = useState<RecomendacoesProps[]>([]);
 
   async function getMoviesDetails() {
@@ -117,8 +119,8 @@ export function Details() {
       .then((response) => {
         const movieTrailer = response.data.results.filter(
           (item: TrailerProps) => item.type === "Trailer"
-        )[0];
-        return movieTrailer.key;
+        );
+        setTrailer(movieTrailer);
       });
   }
 
@@ -162,6 +164,7 @@ export function Details() {
     window.scrollTo(0, 0);
     getMoviesDetails();
     getRecomendacoes();
+    getMovieTrailer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stack]);
 
@@ -227,7 +230,7 @@ export function Details() {
         <h2>Trailer</h2>
         <iframe
           title="trailer"
-          src={`https://www.youtube.com/embed/${getMovieTrailer()}`}
+          src={`https://www.youtube.com/embed/${trailer[0]?.key}`}
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
