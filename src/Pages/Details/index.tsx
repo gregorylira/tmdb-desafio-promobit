@@ -192,19 +192,13 @@ export function Details() {
           <span className="sinopse">{moviesDetails.overview}</span>
 
           <div className="participantes">
-            {getfiveParticipantes()?.map((participante) => {
-              if (!participante.profile_path) {
-                return <></>;
-              }
-
-              return (
-                <Participante
-                  key={participante.id}
-                  name={participante.name}
-                  role={participante.known_for_department}
-                />
-              );
-            })}
+            {getfiveParticipantes()?.map((participante) => (
+              <Participante
+                key={participante.id}
+                name={participante.name}
+                role={participante.known_for_department}
+              />
+            ))}
             {getfiveParticipantesDepartament()?.map((participante) => (
               <Participante
                 key={participante.id}
@@ -218,18 +212,23 @@ export function Details() {
       <Elenco>
         <h2>Elenco</h2>
         <div className="elencos">
-          {participantes.cast?.map((participante) => (
-            <CardProfile
-              key={participante.id}
-              name={participante.name}
-              character={participante.character}
-              profileImg={
-                participante.profile_path
-                  ? `https://image.tmdb.org/t/p/w500/${participante.profile_path}`
-                  : ""
-              }
-            />
-          ))}
+          {participantes.cast?.map((participante) => {
+            if (!participante.profile_path) {
+              return <></>;
+            }
+            return (
+              <CardProfile
+                key={participante.id}
+                name={participante.name}
+                character={participante.character}
+                profileImg={
+                  participante.profile_path
+                    ? `https://image.tmdb.org/t/p/w500/${participante.profile_path}`
+                    : ""
+                }
+              />
+            );
+          })}
         </div>
       </Elenco>
       <Trailer>
