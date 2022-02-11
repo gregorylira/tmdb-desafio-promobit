@@ -45,10 +45,16 @@ export const Content = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+    width: 165px;
+    height: 3.8rem;
+    
+
+    @media (max-width: 750px) {
+      width: 120px;
+      height: 3.8rem;
+    }
 
     img {
-      width: 3.8rem;
-      height: 3.8rem;
     }
     span {
       font-size: 1rem;

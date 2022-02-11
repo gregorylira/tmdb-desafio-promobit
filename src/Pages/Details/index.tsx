@@ -1,7 +1,10 @@
 import { useHistory, useParams } from "react-router-dom";
 import { Header } from "../../components/Header";
-import avaliacaoImg from "../../assets/avaliacao.svg";
 import { api } from "../../service/api";
+
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 
 import { Container, Content, Elenco, Recomendacoes, Trailer } from "./styles";
 import { Participante } from "../../components/Participantes";
@@ -26,6 +29,7 @@ interface MoviesDetailsProps {
   ];
   overview: string;
   runtime: number;
+  vote_average: number;
 }
 
 interface ParticipanteProps {
@@ -185,7 +189,28 @@ export function Details() {
             {getGenres()} • {moviesDetails.runtime} minutes
           </span>
           <div className="avaliacao-usuario">
-            <img src={avaliacaoImg} alt="avaliação do usuario" />
+            {/* <img src={avaliacaoImg} alt="avaliação do usuario" /> */}
+            <CircularProgressbar
+             value={moviesDetails.vote_average*10} 
+             text={`${moviesDetails.vote_average*10}%`}
+             styles={buildStyles({
+              strokeLinecap: 'butt',
+
+              textSize: '16px',
+          
+              // How long animation takes to go from one percentage to another, in seconds
+              pathTransitionDuration: 0.5,
+          
+              // Can specify path transition in more detail, or remove it entirely
+              // pathTransition: 'none',
+          
+              // Colors
+              pathColor: `#06ff27`,
+              textColor: '#88ff98',
+              trailColor: '#fffefe',
+              backgroundColor: '#06ff27'
+            })}
+             />
             <span>avaliação dos usuarios</span>
           </div>
           <h3>Sinopse</h3>
