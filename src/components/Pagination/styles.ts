@@ -13,6 +13,14 @@ export const Ul = styled.ul`
     padding: 10px;
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 500px) {
+    gap: 5px;
+
+    button {
+      padding: 5px;
+    }
+  }
 `;
 
 type LiProps = {

@@ -17,11 +17,9 @@ export function Pagination({
   offset,
   setOffset,
 }: PaginationProps) {
-  const current = offset ? offset / limit + 1 : 1;
+  const current = Math.floor(offset ? offset / limit + 1 : 1);
   const pages = Math.ceil(total / limit);
   const first = Math.max(current - MAX_LEFT, 1);
-  console.log(current);
-  console.log(pages);
 
   async function OnPageChange(page: number) {
     setOffset(limit * (page - 1));

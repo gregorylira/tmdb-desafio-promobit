@@ -51,21 +51,6 @@ export function Home() {
           offset={countPage}
           setOffset={setOffset}
         />
-        {/* {(movies.length > 19 || countPage >= 1) && (
-          <div>
-            {movies.length !== 0 && (
-              <>
-                <button onClick={handleClickPreviousPage}>Previous Page</button>
-                <button onClick={handleClickNextPage}>Next Page</button>
-              </>
-            )}
-          </div>
-        )}
-        {movies.length === 0 && (
-          <div>
-            <button onClick={handleClickPreviousPage}>Previous Page</button>
-          </div>
-        )} */}
       </Footer>
     </BackWhite>
   );
