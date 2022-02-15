@@ -20,7 +20,6 @@ export const Container = styled.div`
     flex-direction: column;
     height: 100%;
     padding-bottom: 40px;
-    
 
     .banner {
       width: 50%;
@@ -39,7 +38,7 @@ export const Content = styled.div`
   color: var(--shape);
   margin: 90px 2rem 0 2rem;
   gap: 1rem;
-  
+
   .avaliacao-usuario {
     display: flex;
     flex-direction: row;
@@ -47,7 +46,6 @@ export const Content = styled.div`
     gap: 1rem;
     width: 165px;
     height: 3.8rem;
-    
 
     @media (max-width: 750px) {
       width: 120px;
@@ -115,10 +113,10 @@ export const Trailer = styled.div`
     margin: 20px;
     max-width: 100%;
     iframe {
-    margin-top: 2rem;
-    width: 90%;
-    height: 20rem;
-  }
+      margin-top: 2rem;
+      width: 90%;
+      height: 20rem;
+    }
   }
 `;
 
@@ -130,7 +128,8 @@ export const Recomendacoes = styled.div`
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    overflow: scroll;
+    overflow: auto;
+    overflow-y: hidden;
   }
   @media (max-width: 1000px) {
     margin: 20px;
