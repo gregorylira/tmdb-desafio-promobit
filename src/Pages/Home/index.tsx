@@ -2,34 +2,26 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { CardMovie } from "../../components/CardMovie";
 import { Dashboard } from "../../components/Dashboard";
+import { Pagination } from "../../components/Pagination";
 import { useMovies } from "../../hook";
 
 import { BackWhite, Content, Footer } from "./styles";
 
 export function Home() {
-  const { movies, trocarPagina, getPagina } = useMovies();
+  const { movies, trocarPagina, maxPages } = useMovies();
   const history = useHistory();
   const [countPage, setCountPage] = useState(1);
 
-  async function handleClickNextPage() {
+  const setOffset = (offset: number) => {
     window.scrollTo(0, 0);
-    const pagina = await getPagina();
-    if (!pagina) {
-      return 1;
+    setCountPage(offset);
+    if (offset) {
+      trocarPagina(offset / 10);
+    } else {
+      trocarPagina(1);
     }
-    setCountPage(pagina + 1);
-    trocarPagina(pagina + 1);
-  }
-
-  async function handleClickPreviousPage() {
-    window.scrollTo(0, 0);
-    const pagina = await getPagina();
-    if (pagina === 1) {
-      return 1;
-    }
-    setCountPage(pagina - 1);
-    trocarPagina(pagina - 1);
-  }
+    console.log(offset);
+  };
 
   return (
     <BackWhite>
@@ -53,7 +45,13 @@ export function Home() {
         })}
       </Content>
       <Footer>
-        {(movies.length > 19 || countPage >= 1) && (
+        <Pagination
+          limit={20}
+          total={maxPages}
+          offset={countPage}
+          setOffset={setOffset}
+        />
+        {/* {(movies.length > 19 || countPage >= 1) && (
           <div>
             {movies.length !== 0 && (
               <>
@@ -67,7 +65,7 @@ export function Home() {
           <div>
             <button onClick={handleClickPreviousPage}>Previous Page</button>
           </div>
-        )}
+        )} */}
       </Footer>
     </BackWhite>
   );

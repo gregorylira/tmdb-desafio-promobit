@@ -23,6 +23,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
     filterType: [],
     filter: false,
   });
+  const [maxPages, setMaxPages] = useState(1);
 
   async function getMovies() {
     if (!filter.filter) {
@@ -31,6 +32,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
           `movie/popular?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&page=${page}`
         )
         .then((response) => {
+          setMaxPages(response.data.total_pages);
           setMovies(response.data.results);
         });
     } else {
@@ -39,6 +41,7 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
           `discover/movie?api_key=${process.env.REACT_APP_API_KEY_TMDB}&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${filter.filterType}&with_watch_monetization_types=flatrate`
         )
         .then((response) => {
+          setMaxPages(response.data.total_pages);
           setMovies(response.data.results);
         });
     }
@@ -74,7 +77,15 @@ export function MoviesContextProvider({ children }: MoviesContextProps) {
 
   return (
     <MoviesContext.Provider
-      value={{ movies, trocarPagina, getPagina, filtragem, active, setActive }}
+      value={{
+        movies,
+        trocarPagina,
+        getPagina,
+        filtragem,
+        active,
+        setActive,
+        maxPages,
+      }}
     >
       {children}
     </MoviesContext.Provider>

@@ -22,4 +22,5 @@ export interface MoviesContextData {
   filtragem: (filtro: string) => Promise<void>;
   active: number[];
   setActive: React.Dispatch<React.SetStateAction<number[]>>;
+  maxPages: number;
 }
